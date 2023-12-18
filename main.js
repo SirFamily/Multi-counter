@@ -55,7 +55,7 @@ function Counter(set) {
 
     btnInc.addEventListener('click', () => updateCounter(Number(step)))
     btnDec.addEventListener('click', () => updateCounter(Number(-step)))
-
+    btnClr.addEventListener('click', () => updateCounter(-countNum))
     btnDel.addEventListener('click', delCounter)
 
     return counter
@@ -74,4 +74,5 @@ function Addcounter(s) {
 
 buttonAdd.addEventListener('click', () => Addcounter(document.querySelector("#counterInput").value));
 
-
+click = new Audio();
+click.scr = "./click.mp3";
