@@ -37,9 +37,9 @@ function Counter(set) {
     const stepcCunter = makeElement('div', 'class', 'stepcounter', 'Step = ' + set)
     const conTroller = makeElement('div', 'class', "controller", '')
     const btnInc = makeElement('button', 'class', 'btn-inc', '+')
+    const btnClr = makeElement('button', 'class', 'btn-clr', '0')
     const btnDec = makeElement('button', 'class', 'btn-dec', '-')
-    const btnClr = makeElement('button', 'class', 'btn-clr', 'c')
-    const btnDel = makeElement('button', 'class', 'btn-clr', 'D')
+    const btnDel = makeElement('button', 'class', 'btn-clr', 'X')
 
     // root.appendChild(counter);
     counter.appendChild(header);
@@ -48,14 +48,14 @@ function Counter(set) {
     header.appendChild(stepcCunter);
 
     conTroller.appendChild(btnInc);
-    conTroller.appendChild(btnDec);
     conTroller.appendChild(btnClr);
+    conTroller.appendChild(btnDec);
     conTroller.appendChild(btnDel);
     // counter.append(btnInc, number, btnDec, btnClr,btnDel)
 
     btnInc.addEventListener('click', () => updateCounter(Number(step)))
     btnDec.addEventListener('click', () => updateCounter(Number(-step)))
-    btnClr.addEventListener('click', () => updateCounter(-countNum))
+
     btnDel.addEventListener('click', delCounter)
 
     return counter
@@ -63,7 +63,13 @@ function Counter(set) {
 
 function Addcounter(s) {
     let se = s;
-    root.appendChild(Counter(se))
+    if (se.length > 0) {
+        document.getElementById('in').innerText = ''
+        root.appendChild(Counter(se));
+    } else {
+        // กรณีค่าว่าง สามารถเพิ่มโค้ดหรือแจ้งเตือนเพื่อแจ้งให้ผู้ใช้ทราบได้
+        document.getElementById('in').innerText = 'กรุณากรอกค่า'
+    }
 }
 
 buttonAdd.addEventListener('click', () => Addcounter(document.querySelector("#counterInput").value));
