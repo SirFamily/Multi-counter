@@ -41,7 +41,6 @@ function Counter(set) {
     const btnDec = makeElement('button', 'class', 'btn-dec', '-')
     const btnDel = makeElement('button', 'class', 'btn-clr', 'X')
 
-    // root.appendChild(counter);
     counter.appendChild(header);
     counter.appendChild(conTroller);
     header.appendChild(counting);
@@ -51,7 +50,6 @@ function Counter(set) {
     conTroller.appendChild(btnClr);
     conTroller.appendChild(btnDec);
     conTroller.appendChild(btnDel);
-    // counter.append(btnInc, number, btnDec, btnClr,btnDel)
 
     btnInc.addEventListener('click', () => updateCounter(Number(step)))
     btnDec.addEventListener('click', () => updateCounter(Number(-step)))
@@ -67,7 +65,6 @@ function Addcounter(s) {
         document.getElementById('in').innerText = ''
         root.appendChild(Counter(se));
     } else {
-        // กรณีค่าว่าง สามารถเพิ่มโค้ดหรือแจ้งเตือนเพื่อแจ้งให้ผู้ใช้ทราบได้
         document.getElementById('in').innerText = 'กรุณากรอกค่า'
     }
 }
