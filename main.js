@@ -74,5 +74,3 @@ function Addcounter(s) {
 
 buttonAdd.addEventListener('click', () => Addcounter(document.querySelector("#counterInput").value));
 
-click = new Audio();
-click.scr = "./click.mp3";
